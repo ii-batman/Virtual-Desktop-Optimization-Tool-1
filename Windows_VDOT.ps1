@@ -7,7 +7,7 @@
     of the Sample Code, provided that You agree: (i) to not use Our name, logo, or trademarks to market Your software product in 
     which the Sample Code is embedded; (ii) to include a valid copyright notice on Your software product in which the Sample Code 
     is embedded; and (iii) to indemnify, hold harmless, and defend Us and Our suppliers from and against any claims or lawsuits, 
-    including attorneys’ fees, that arise or result from the use or distribution of the Sample Code.
+    including attorneysâ€™ fees, that arise or result from the use or distribution of the Sample Code.
 
     Microsoft provides programming examples for illustration only, without warranty either expressed or
     implied, including, but not limited to, the implied warranties of merchantability and/or fitness 
@@ -264,7 +264,7 @@ PROCESS {
 
     # This section is for disabling scheduled tasks.  If you find a task that should not be disabled
     # change its "VDIState" from Disabled to Enabled, or remove it from the json completely.
-    If ($Optimizations -contains 'ScheduledTasks' -or $Optimizations -contains "All") {
+    If ($Optimizations -contains 'ScheduledTasks') {
         $ScheduledTasksFilePath = ".\ConfigurationFiles\ScheduledTasks.json"
         If (Test-Path $ScheduledTasksFilePath)
         {
@@ -686,7 +686,7 @@ PROCESS {
     {
         Write-EventLog -EventId 80 -Message "Remove Legacy Internet Explorer" -LogName 'Virtual Desktop Optimization' -Source 'AdvancedOptimizations' -EntryType Information
         Write-Host "[VDI Advanced Optimize] Remove Legacy Internet Explorer" -ForegroundColor Cyan
-        Get-WindowsCapability -Online | Where-Object Name -Like "*Browser.Internet*" | Remove-WindowsCapability -Online 
+        #Get-WindowsCapability -Online | Where-Object Name -Like "*Browser.Internet*" | Remove-WindowsCapability -Online 
     }
     #endregion
 
